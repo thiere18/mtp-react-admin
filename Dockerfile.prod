@@ -1,24 +1,29 @@
-FROM node:14-alpine AS builder
-ENV NODE_ENV production
-# Add a work directory
-WORKDIR /app
-# Cache and Install dependencies
-COPY package.json .
-COPY yarn.lock .
-RUN yarn install
-# Copy app files
-COPY . .
-# Build the app
-RUN yarn build
+FROM python:3.8
 
-# Bundle static assets with nginx
-FROM nginx:1.21.0-alpine as production
-ENV NODE_ENV production
-# Copy built assets from builder
-COPY --from=builder /app/build /usr/share/nginx/html
-# Add your nginx.conf
-COPY /nginx/nginx.conf /etc/nginx/conf.d/default.conf
-# Expose port
-EXPOSE 80
-# Start nginx
+RUN apt update -y \
+    && apt install nginx curl vim -y \
+    && apt-get install software-properties-common -y \
+    && add-apt-repository -r ppa:certbot/certbot -y \
+    && apt-get update -y \
+    && apt-get install python3-certbot-nginx -y \
+    && apt-get clean
+
+WORKDIR /usr/src/app
+
+
+STOPSIGNAL SIGTERM
+
+# FROM node:14-alpine AS builder
+# ENV NODE_ENV production
+# # Add a work directory
+# WORKDIR /app
+# # Cache and Install dependencies
+# COPY package.json .
+# COPY yarn.lock .
+# RUN yarn install
+# # Copy app files
+# COPY . .
+# # Build the app
+# RUN yarn build
+
 CMD ["nginx", "-g", "daemon off;"]
