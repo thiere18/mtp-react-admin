@@ -1,2 +1,2 @@
-export const BACKEND_URL: string =  'https://tk.thiere18.studio';
+export const BACKEND_URL: string =  'http://localhost:3000';
 
