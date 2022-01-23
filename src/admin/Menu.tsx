@@ -25,7 +25,7 @@ return(
                 <MenuItemLink to="/magasins" primaryText="Magasins" leftIcon={<LabelIcon />} />
             </>
         },
-              {permissions === 'normal' &&
+        {permissions === 'normal' &&
             <>
                 <DashboardMenuItem />
                 {/* <MenuItemLink to="/users" primaryText="Utilisateur" leftIcon={<PeopleIcon />} /> */}

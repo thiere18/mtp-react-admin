@@ -28,7 +28,6 @@
     "eject": "react-scripts eject",
     "dev": "docker-compose -f docker-compose.dev.yml up"
   },
-  "proxy":"https://tk.thiere18.studio",
   "eslintConfig": {
     "extends": "airbnb"
   },
