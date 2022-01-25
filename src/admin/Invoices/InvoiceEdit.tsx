@@ -41,7 +41,7 @@ export
         <RaBox display="flex" justifyContent="space-around" >
           <TextInput source="reference" variant="outlined" />
           <NumberInput source="value_net" label="total" variant="outlined" />
-          <NumberInput source="value_net" label="total"  variant="outlined"/>
+          {/* <NumberInput source="value_net" label="total"  variant="outlined"/> */}
 
         </RaBox>
         <RaBox display="flex" justifyContent="space-around" >
@@ -60,12 +60,17 @@ export
               
             <RaBox display="flex"  justifyContent="space-around" >
 
-                <TextInput source="product"  label="product" variant="outlined"/>
-                    <NumberInput source="quantity" label="Quantity"  variant="outlined"/>
-                <NumberInput source="price" label="price" variant="outlined" />
-                </RaBox>
+                {/* <TextInput source="product"  label="product" variant="outlined"/> */}
+                    {/* <NumberInput source="quantity" label="Quantity"  variant="outlined"/> */}
+                {/* <NumberInput source="price" label="price" variant="outlined" /> */}
+                <ReferenceInput source="designation" reference="products" variant="outlined" >
+            <SelectInput optionText="designation" optionValue="designation"  variant="outlined" />
+        </ReferenceInput>
 
-            </SimpleFormIterator>
+              <NumberInput source="quantity" label="Quantity" variant="outlined" />
+              </RaBox>
+
+                </SimpleFormIterator>
 
             </ArrayInput>
         {/* </SimpleForm> */}

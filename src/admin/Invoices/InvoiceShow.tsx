@@ -25,17 +25,18 @@ export const InvoiceShow: FC = (props) => {
       <Tab label="summary">
             <ChipField label="Id" source="id" />
             <TextField source="reference" label="Reference"/>
-            <NumberField source="prix_achat" label="prix achat" locales="fr-FR" options={{ style: 'currency', currency: 'XOF' }}/>
-            <NumberField source="value_net" label="value net" locales="fr-FR" options={{ style: 'currency', currency: 'XOF' }}/>
-            <NumberField source="actual_payment" label="actual payment" locales="fr-FR" options={{ style: 'currency', currency: 'XOF' }}/>
+            {/* <NumberField source="prix_achat" label="prix achat" locales="fr-FR" options={{ style: 'currency', currency: 'XOF' }}/> */}
+            <NumberField source="value_net" label="Total" locales="fr-FR" options={{ style: 'currency', currency: 'XOF' }} />
+            <NumberField source="actual_payment" label="Montant payé" locales="fr-FR" options={{ style: 'currency', currency: 'XOF' }} />
+            <NumberField source="payment_due" label="Montant restant" locales="fr-FR" options={{ style: 'currency', currency: 'XOF' }}/>
             <BooleanField source="paid" />
         </Tab>
           <Tab label="items" >
             <ArrayField source="items">
               <Datagrid >
-                <TextField source="product" label="produit" />
-                <TextField source="quantity" label="quantity" />
-                <TextField source="price" label="prix unitaire" />
+                <TextField source="designation" label="produit" />
+                <TextField source="quantity" label="quantité" />
+                <TextField source="prix_unit" label="prix unitaire" />
               </Datagrid>
             </ArrayField>
           </Tab>

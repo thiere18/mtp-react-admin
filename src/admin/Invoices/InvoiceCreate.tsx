@@ -17,16 +17,19 @@ export const InvoiceCreate: FC = (props) => (
 
     <SimpleForm>
             <TextInput source="reference" validate={[required()]} variant="outlined" />
-            <NumberInput source="value_net" label="total" validate={[required()]} variant="outlined" />
+            {/* <NumberInput source="value_net" label="total" validate={[required()]} variant="outlined" /> */}
             <NumberInput source="actual_payment" label="Payment actuel" validate={[required()]} variant="outlined" />
             <ReferenceInput source="magasin_id" reference="magasins" variant="outlined">
                <SelectInput optionText="name" optionValue="id" validate={[required()]} variant="outlined" />
       </ReferenceInput>
           <ArrayInput source="items" display="inline-block">
                 <SimpleFormIterator>
-                <TextInput source="product" label="product" variant="outlined"/>
-                    <NumberInput source="quantity" label="Quantity" variant="outlined"/>
-                <NumberInput source="price" label="price" variant="outlined"/>
+          {/* <TextInput source="designation" label="product" variant="outlined" /> */}
+          <ReferenceInput source="designation" reference="products" variant="outlined" label="designation" >
+            <SelectInput optionText="designation"  optionValue="designation" validate={[required()]} variant="outlined" />
+        </ReferenceInput>
+
+                    <NumberInput source="quantity" label="quantite" variant="outlined"/>
                 </SimpleFormIterator>
         </ArrayInput>
       </SimpleForm>
