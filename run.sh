@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env 
 
 case $1 in
   start)
